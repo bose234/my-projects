@@ -1,0 +1,156 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<form #myForm="ngForm" (ngSubmit)="submitform(myForm)">
+<div class=" form-group">
+    <label for="userame">Username</label>
+    <input type="text" minlength="7" [(ngModel)]="formdata.username" name="username" pattern="^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{7,}$" #username="ngModel" id="username" class="form-control">
+    <div class="alert alert-danger"
+        *ngIf="username.touched && !username.valid">
+        <div *ngIf="username.errors?.['required']">
+            username is required
+        </div>
+        <div *ngIf="username.errors?.['minlength']">
+            username should be minimum 7 character
+        </div>
+        <div *ngIf="username.errors?.['pattern']">
+            username doent match,contains at least one number, 1 character
+        </div>  
+</div>
+</div>
+  
+<div >
+    <label for="gmail">Gmail:</label>
+    <input type="gmail" id="gmail"  pattern="^[a-zA-Z0-9._%+-]+@gmail.com$" #gmail="ngModel" [(ngModel)]="formdata.gmail" name="gmail" required class="form-control">
+    <div class="alert alert-danger"
+    *ngIf="gmail.touched && !gmail.valid">
+    <div *ngIf="gmail.errors?.['required']">
+        gmail is required
+    </div>
+    <div *ngIf="gmail.errors?.['pattern']">
+        gmail is invalid format
+    </div>
+  </div>
+  </div>
+
+
+  <div >
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" #password="ngModel" [(ngModel)]="formdata.password" name="password" required minlength="8" maxlength="15" 
+           pattern="^(?=.*[!@#$%^&*])(?=.*[A-Z])(?=.*[0-9]).{8,15}$" class="form-control">
+    <div class="alert alert-danger"
+    *ngIf="password.touched && !password.valid">       
+    <div *ngIf="password.errors?.['required']">Password is required.</div>
+    <div *ngIf="password.errors?.['minlength']">Password should have a minimum of 8 characters.</div>
+    <div *ngIf="password.errors?.['maxlength']">Password should have a maximum of 15 characters.</div>
+    <div *ngIf="password.errors?.['pattern']">
+      Password should contain at least one special character, one uppercase character, and one numeric character.
+    </div>
+  </div>
+  </div>
+
+  <div >
+    <label for="confirmpassword">confirm Password:</label>
+    <input type="password" id="confirmpassword" name="confirmpassword" #confirmpassword="ngModel" [(ngModel)]="formdata.confirmpassword" name="confirmpassword" required minlength="8" maxlength="15" 
+           [pattern]="formdata.password" class="form-control">
+    <div class="alert alert-danger"
+    *ngIf="confirmpassword.touched && !confirmpassword.valid">       
+    <div *ngIf="confirmpassword.errors?.['required']">Password is required.</div>
+    <div *ngIf="confirmpassword.errors?.['pattern']">
+     Confirm password can not been matched
+    </div>
+  </div>
+  </div>
+
+ 
+
+
+
+
+
+  <div>
+    <label for="mobile">Mobile Number:</label>
+    <input type="text" id="mobile" name="mobile" pattern="^[0-9]{10}$" #mobile="ngModel" [(ngModel)]="formdata.mobile" name="mobile" required class="form-control">
+    <div class="alert alert-danger"
+    *ngIf="mobile.touched && !mobile.valid">
+    <div *ngIf="mobile.errors?.['required']">
+        mobile number is required
+    </div>
+    <div *ngIf="mobile.errors?.['pattern']">
+        mobile number is invalid format
+    </div>
+    </div>
+  </div>
+
+  <div >
+    <label for="address">Address:</label>
+    <textarea id="address" name="address" #address="ngModel" [(ngModel)]="formdata.address" name="address" required class="form-control"></textarea>
+    <div class="alert alert-danger"
+    *ngIf="address.touched && !address.valid">
+    <div *ngIf="address.errors?.['required']">Address is required.</div>
+  </div>
+  </div>
+
+
+  <div >
+    <label for="site link:">Site link:</label>
+    <input type="text" id="link"  pattern="www.+[a-zA-Z0-9._%+-]+.com$" #link="ngModel" [(ngModel)]="formdata.link" name="link" required class="form-control">
+    <div class="alert alert-danger"
+    *ngIf="link.touched && !link.valid">
+    <div *ngIf="link.errors?.['required']">
+        sitelink is required
+    </div>
+    <div *ngIf="link.errors?.['pattern']">
+        sitelink is invalid format
+    </div>
+  </div>
+  </div>
+
+  <div>
+    <label>Gender:</label>
+    <div class="form-check">
+      <input type="radio" id="male" name="gender" value="male" required [(ngModel)]="formdata.gender" #gender="ngModel" class="form-check-input">
+      <label for="male" class="form-check-label">Male</label>
+    </div>
+    <div class="form-check">
+      <input type="radio" id="female" name="gender" value="female" required [(ngModel)]="formdata.gender" #gender="ngModel" class="form-check-input">
+      <label for="female" class="form-check-label">Female</label>
+    </div>
+    <div class="alert alert-danger" *ngIf="gender.touched && gender.invalid">
+      Gender is required.
+    </div>
+  </div>
+  
+
+  <div>
+    <label for="course">Course:</label>
+    <select id="course" name="course" #course="ngModel" [(ngModel)]="formdata.course" name="course" required class="form-control">
+      <option value="">Select</option>
+      <option *ngFor="let option of courseoptions" [value]="option">{{ option }}</option>
+    </select>
+    <div class="alert alert-danger" *ngIf="course.errors?.['required']">Course is required.</div>
+  </div>
+
+  <div>
+    <input type="checkbox" id="agree" #agree="ngModel" ngModel name="agree" required>
+    <label for="agree">I agree to the terms and conditions</label>
+    <div class="alert alert-danger" *ngIf="agree.errors?.['required']">
+      accept the terms
+    </div>
+  </div>
+
+  
+
+  <div>
+    <label for="captcha">Captcha: 2 + 2 =</label>
+    <input type="number" id="captcha" [(ngModel)]="captchavalue" name="captcha" required #captcha="ngModel" class="form-control">
+    <div class="alert alert-danger" *ngIf="captcha.touched && !captcha.valid">
+      <span *ngIf="captcha.errors?.['required']">Please enter the captcha value.</span>
+      
+    </div>
+    <div class="alert alert-danger" *ngIf="captchavalue !== 4">Please enter a valid captcha value.</div>
+    </div>
+  
+  
+
+
+  <button class="bt btn-primary"type="submit" [disabled]="captchavalue !== 4||!myForm.valid">Submit</button>
+</form>

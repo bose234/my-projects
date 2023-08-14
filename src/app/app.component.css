@@ -1,0 +1,23 @@
+*{
+    box-sizing: border-box;
+  }
+
+.form-control.ng-touched.ng-invalid{
+    border:1px solid red;
+}
+
+
+.form-control{
+    height: 50%;
+    width: 50%;
+    
+}
+.alert-danger{
+    height: 50%;
+    width: 50%;
+
+}
+.btn-primary[disabled]{
+    color:black;
+}
+
