@@ -1,0 +1,17 @@
+<nav class="navbar navbar-inverse" role="navigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">WebSiteName</a>
+    </div>
+    <ul class="nav navbar-nav navbar-right">
+      <li class="active" *ngIf="role === 'user'">
+        <a routerLink="/viewproduct" routerLinkActive="active">Products</a>
+      </li>
+      <li class="active" *ngIf="role === 'user'">
+        <a routerLink="/viewcart" routerLinkActive="active">Ordered Products</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<router-outlet></router-outlet>

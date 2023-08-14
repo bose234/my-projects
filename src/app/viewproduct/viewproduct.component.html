@@ -1,0 +1,50 @@
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">WebSiteName</a>
+      </div>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="active"><a routerLink="/viewproduct">products</a></li>
+        <li class="active"><a routerLink="/viewcart">ordered products</a></li>
+        
+        </ul>
+      
+       
+        
+     
+    </div>
+  </nav>
+  
+  <input type="text" [(ngModel)]="searchText" placeholder="search item">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-2 col-sm-4" *ngFor="let product of products | productfilter: searchText;let i=index">
+        <div class="card" style="width: 110%; height: 100%;" >
+          <h2 style="text-align: center;">{{ product.name }}</h2>
+          <div class="image-container">
+            <img [src]="product.image"
+                 style="width: 150px; height: 160px;"
+                 [routerLink]="['/productdetails', i+1]"
+                 [queryParams]="{image: product.image, name: product.name, description: product.description}"
+                 [class.image-animation]="true">
+          </div>
+          <p class="price">Rs:{{ product.price }}</p>
+          <p class="description">{{ product.description }}</p>
+          <button (click)="decrement(product)">-</button>
+          <input type="number" [value]="product.count" readonly style="width: 50px;" #quantity  >
+          <button (click)="increment(product)">+</button><br><br>
+          <!-- <p><button class="btn btn-primary" (click)="addtocart(product,quantity)">Add to Cart</button></p><br> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <button class="btn btn-danger"  (click)="place()">place the order</button>
+  <!-- <button class="btn btn-danger" routerLink="viewproduct" (click)="logout()">Logout</button> -->
+
+ 
+  
+
+  

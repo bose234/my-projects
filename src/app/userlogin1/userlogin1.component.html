@@ -1,0 +1,22 @@
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">
+
+
+  
+<div class="container">
+    <h2>Login</h2>
+  
+    <div class="form-group">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" [(ngModel)]="username">
+    </div>
+  
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <input type="password" id="password"  name="password" [(ngModel)]="password">
+    </div>
+  
+    <button routerlink="/viewproduct" (click)="login()">Login</button>
+  </div>
+  
+  
