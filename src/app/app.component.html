@@ -1,0 +1,301 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">
+
+<!-- <div class="container">
+  <form [formGroup]="contactform" (submit)="submitform()">
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input type="text"  formControlName="username"  id="username" class="form-control">
+      <div class="alert alert-danger" *ngIf="contactform.controls.username.valid==false && contactform.controls.username.touched ">
+        <div *ngIf="contactform.controls.username?.errors?.['required']">
+          Username is required
+        </div>
+        <div *ngIf="contactform.controls.username?.errors?.['pattern']">
+          Username should contain at least one number and one special character.
+        </div>
+      </div>
+    </div>
+
+
+    <div >
+      <label for="gmail">Gmail:</label>
+      <input type="gmail" id="gmail"    name="gmail"  class="form-control" formControlName="gmail">
+      <div class="alert alert-danger"
+      *ngIf="contactform.controls.gmail.touched  && !contactform.controls.gmail.valid">
+      <div *ngIf="contactform.controls.gmail.errors?.['required']">
+          gmail is required
+      </div>
+      <div *ngIf="contactform.controls.gmail.errors?.['pattern']">
+          gmail is invalid format
+      </div>
+    </div>
+    </div>
+
+    <div >
+      <label for="password">Password:</label>
+      <input type="password" id="password" value="password"  name="password" formControlName="password"  minlength="8" maxlength="15" 
+             pattern="^(?=.*[!@#$%^&*])(?=.*[A-Z])(?=.*[0-9]).{8,15}$" class="form-control">
+      <div class="alert alert-danger"
+      *ngIf="contactform.controls.password.touched  && !contactform.controls.password.valid">       
+      <div *ngIf="contactform.controls.password.errors?.['required']">Password is required.</div>
+      <div *ngIf="contactform.controls.password.errors?.['minlength']">Password should have a minimum of 8 characters.</div>
+      <div *ngIf="contactform.controls.password.errors?.['maxlength']">Password should have a maximum of 15 characters.</div>
+      <div *ngIf="contactform.controls.password.errors?.['pattern']">
+        Password should contain at least one special character, one uppercase character, and one numeric character.
+      </div> 
+    </div>
+    </div>
+
+   
+    <div >
+      <label for="confirmpassword">confirm Password:</label>
+      <input type="password" id="confirmpassword" value="confirmpassword" name="confirmpassword" formControlName="confirmpassword" name="confirmpassword"  
+             class="form-control">
+<div>
+      <div class="alert alert-danger"
+      *ngIf="contactform.controls.confirmpassword.touched  && !contactform.controls.confirmpassword.valid">required password  </div>
+      <div *ngIf="contactform.controls.confirmpassword.value !== contactform.controls.password.value">
+        Confirm password does not match.
+      </div>
+     </div>
+     </div>
+    
+
+
+  
+    <div>
+      <label for="mobile">Mobile Number:</label>
+      <input type="text" id="mobile" name="mobile" pattern="^[0-9]{10}$"  name="mobile" formControlName="mobile" class="form-control">
+      <div class="alert alert-danger"
+      *ngIf="contactform.controls.mobile.touched  && !contactform.controls.mobile.valid">
+      <div *ngIf="contactform.controls.mobile.errors?.['required']">
+          mobile number is required
+      </div>
+      <div *ngIf="contactform.controls.mobile.errors?.['pattern']">
+          mobile number is invalid format
+      </div>
+      </div>
+    </div>
+
+
+    <div >
+      <label for="address">Address:</label>
+      <textarea id="address" name="address"  name="address" formControlName="address" class="form-control"></textarea>
+      <div class="alert alert-danger"
+      *ngIf="contactform.controls.address.touched  && !contactform.controls.address.valid">
+      <div *ngIf="contactform.controls.address.errors?.['required']">Address is required.</div>
+    </div>
+    </div>
+
+
+    <div >
+      <label for="site link:">Site link:</label>
+      <input type="text" id="link"  pattern="www.+[a-zA-Z0-9._%+-]+.com$"  name="link" formControlName="link" class="form-control">
+      <div class="alert alert-danger"
+      *ngIf="contactform.controls.link.touched  && !contactform.controls.link.valid">
+      <div *ngIf="contactform.controls.link.errors?.['required']">
+          sitelink is required
+      </div>
+      <div *ngIf="contactform.controls.link.errors?.['pattern']">
+          sitelink is invalid format
+      </div>
+    </div>
+    </div>
+
+
+
+    <div>
+      <label>Gender:</label>
+      <div class="form-check">
+        <input type="radio" id="male" name="gender" value="male" formControlName="gender" class="form-check-input">
+        <label for="male" class="form-check-label">Male</label>
+      </div>
+      <div class="form-check">
+        <input type="radio" id="female" name="gender" value="female" formControlName="gender" class="form-check-input">
+        <label for="female" class="form-check-label">Female</label>
+      </div>
+      <div class="alert alert-danger" *ngIf="contactform.controls.gender.touched  && !contactform.controls.gender.valid">
+        Gender is required.
+      </div>
+    </div>
+  
+    <label for="course">Course</label>
+    <select formControlName="course" id="course" formControlName="courses" class="form-control">
+      <option value="">Select Course</option>
+      <option *ngFor="let course of courses" [value]="course">{{ course }}</option>
+    </select>
+    <div class="alert alert-danger" *ngIf="contactform.controls.courses.errors?.['required']">Course is required.</div>
+  
+
+
+    <div>
+      <label for="Skills">Skills:</label><br>
+      <label class="checkbox-inline">
+        <input type="checkbox" formControlName="skills" value="Skill 1"> HTML
+      </label><br>
+      <label class="checkbox-inline">
+        <input type="checkbox" formControlName="skills" value="Skill 2"> CSS
+      </label><br>
+      <label class="checkbox-inline">
+        <input type="checkbox" formControlName="skills" value="Skill 3"> Java script
+      </label><br>
+  </div>
+  <hr>
+
+
+  <div>
+    <input type="checkbox" id="agree"  formControlName="agree" name="agree" required>
+    <label for="agree">I agree to the terms and conditions</label>
+    <div class="alert alert-danger" *ngIf="contactform.controls.agree.errors?.['required']">
+      accept the terms
+    </div>
+  </div>
+
+
+  <div>
+    <label for="captcha">Captcha: 2 + 2 =</label>
+    <input type="number" id="captcha" name="captcha" formControlName="captcha" class="form-control">
+    <div class="alert alert-danger" *ngIf="contactform.controls.captcha.touched && contactform.controls.captcha.invalid">
+      <span *ngIf="contactform.controls.captcha.errors?.['required']">Please enter the captcha value.</span>
+    </div>
+    <div class="alert alert-danger" *ngIf="contactform.controls.captcha.value != 4">
+      Please enter a valid captcha value.
+    
+  </div>
+  </div>
+    <button type="submit" [disabled]="contactform.controls.captcha.value !=4 || !contactform.valid" class="btn btn-primary">Submit</button> -->
+
+   <!-- app.component.html -->
+<div class="container">
+  <form [formGroup]="contactform" (submit)="submitform()">
+    <mat-form-field>
+      <mat-label>Username</mat-label>
+      <input matInput type="text" formControlName="username" id="username">
+      <mat-error *ngIf="contactform.controls.username.invalid && contactform.controls.username.touched">
+        <mat-error *ngIf="contactform.controls.username.errors?.['required']">
+          Username is required
+        </mat-error>
+        <mat-error *ngIf="contactform.controls.username.errors?.['pattern']">
+          Username should contain at least one number and one special character.
+        </mat-error>
+      </mat-error>
+    </mat-form-field>
+    <br>
+
+    <mat-form-field>
+      <mat-label>Gmail:</mat-label>
+      <input matInput type="email" formControlName="gmail" id="gmail">
+      <mat-error *ngIf="contactform.controls.gmail.touched && !contactform.controls.gmail.valid">
+        <div *ngIf="contactform.controls.gmail.errors?.['required']">
+          Gmail is required
+        </div>
+        <div *ngIf="contactform.controls.gmail.errors?.['pattern']">
+          Gmail is in an invalid format
+        </div>
+      </mat-error>
+    </mat-form-field>
+    <br>
+
+    <mat-form-field>
+      <mat-label>Password:</mat-label>
+      <input matInput type="password" formControlName="password" id="password" minlength="8" maxlength="15"
+             pattern="^(?=.*[!@#$%^&*])(?=.*[A-Z])(?=.*[0-9]).{8,15}$">
+      <mat-error *ngIf="contactform.controls.password.touched && !contactform.controls.password.valid">
+        <div *ngIf="contactform.controls.password.errors?.['required']">Password is required.</div>
+        <div *ngIf="contactform.controls.password.errors?.['minlength']">Password should have a minimum of 8 characters.</div>
+        <div *ngIf="contactform.controls.password.errors?.['maxlength']">Password should have a maximum of 15 characters.</div>
+        <div *ngIf="contactform.controls.password.errors?.['pattern']">
+          Password should contain at least one special character, one uppercase character, and one numeric character.
+        </div>
+      </mat-error>
+    </mat-form-field>
+<br>
+    <mat-form-field>
+      <mat-label>Confirm Password:</mat-label>
+      <input matInput type="password" formControlName="confirmpassword" id="confirmpassword">
+      <mat-error *ngIf="contactform.controls.confirmpassword.touched && !contactform.controls.confirmpassword.valid">
+        <div *ngIf="contactform.controls.confirmpassword.errors?.['required']">Password is required.</div>
+        <div *ngIf="contactform.controls.confirmpassword.value !== contactform.controls.password.value">
+          Confirm password does not match.
+        </div>
+      </mat-error>
+    </mat-form-field>
+<br>
+    <mat-form-field>
+      <mat-label>Mobile Number:</mat-label>
+      <input matInput type="text" formControlName="mobile" id="mobile" pattern="^[0-9]{10}$">
+      <mat-error *ngIf="contactform.controls.mobile.touched && !contactform.controls.mobile.valid">
+        <div *ngIf="contactform.controls.mobile.errors?.['required']">Mobile number is required</div>
+        <div *ngIf="contactform.controls.mobile.errors?.['pattern']">Mobile number is in an invalid format</div>
+      </mat-error>
+    </mat-form-field>
+<br>
+    <mat-form-field>
+      <mat-label>Address:</mat-label>
+      <textarea matInput formControlName="address" id="address"></textarea>
+      <mat-error *ngIf="contactform.controls.address.touched && !contactform.controls.address.valid">
+        <div *ngIf="contactform.controls.address.errors?.['required']">Address is required.</div>
+      </mat-error>
+    </mat-form-field>
+<br>
+    <mat-form-field>
+      <mat-label>Site Link:</mat-label>
+      <input matInput type="text" formControlName="link" id="link" pattern="www.+[a-zA-Z0-9._%+-]+.com$">
+      <mat-error *ngIf="contactform.controls.link.touched && !contactform.controls.link.valid">
+        <div *ngIf="contactform.controls.link.errors?.['required']">Site link is required</div>
+        <div *ngIf="contactform.controls.link.errors?.['pattern']">Site link is in an invalid format</div>
+      </mat-error>
+    </mat-form-field>
+
+    <div>
+      <label>Gender:</label>
+      <div class="form-check">
+        <mat-radio-group formControlName="gender">
+          <mat-radio-button value="male">Male</mat-radio-button>
+          <mat-radio-button value="female">Female</mat-radio-button>
+        </mat-radio-group>
+      </div>
+      <mat-error *ngIf="contactform.controls.gender.touched && !contactform.controls.gender.valid">
+        Gender is required.
+      </mat-error>
+    
+
+    <mat-form-field>
+      <mat-label>Course:</mat-label>
+      <mat-select formControlName="course" id="course">
+        <mat-option value="">Select Course</mat-option>
+        <mat-option *ngFor="let course of courses" [value]="course">{{ course }}</mat-option>
+      </mat-select>
+      <mat-error *ngIf="contactform.controls.courses.errors?.['required']">Course is required.</mat-error>
+    </mat-form-field>
+
+    <div>
+      <label>Skills:</label><br>
+      <mat-checkbox formControlName="skills" value="Skill 1">HTML</mat-checkbox><br>
+      <mat-checkbox formControlName="skills" value="Skill 2">CSS</mat-checkbox><br>
+      <mat-checkbox formControlName="skills" value="Skill 3">JavaScript</mat-checkbox><br>
+    </div>
+
+    <hr>
+
+    <div>
+      <mat-checkbox formControlName="agree" id="agree" required></mat-checkbox>
+      <label for="agree">I agree to the terms and conditions</label>
+      <mat-error *ngIf="contactform.controls.agree.errors?.['required']">
+        Accept the terms
+      </mat-error>
+    </div>
+
+    <mat-form-field>
+      <mat-label>Captcha: 2 + 2 =</mat-label>
+      <input matInput type="number" formControlName="captcha" id="captcha">
+      <mat-error *ngIf="contactform.controls.captcha.touched && contactform.controls.captcha.invalid">
+        <span *ngIf="contactform.controls.captcha.errors?.['required']">Please enter the captcha value.</span>
+      </mat-error>
+      <mat-error *ngIf="contactform.controls.captcha.value != 4">
+        Please enter a valid captcha value.
+      </mat-error>
+    </mat-form-field>
+
+    <button mat-button type="submit" [disabled]="contactform.controls.captcha.value != 4 || !contactform.valid">Submit</button>
+  
+</div>
