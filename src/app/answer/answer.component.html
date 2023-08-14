@@ -1,0 +1,29 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">
+   
+
+<body>
+  <div class="card text-white  mb-3" style="max-width: 25rem;">
+    <div class="container">
+  <form  (ngSubmit)="submit()" #myForm="ngForm">
+    <div >
+      <h2>{{ assessmentTitle }}</h2>
+      <p>{{ assessmentDescription }}</p>
+      <p>Marks: {{ assessmentMarks }}</p>
+      <p>Due Date: {{ assessmentdueDate }}</p>
+    </div>
+  
+    <div>
+      
+      <input type="file" class="file" *ngIf="!isStaff" (change)="onFileSelected($event)">
+      <br>
+      <button class="btn btn-primary" type="submit"  *ngIf="!isStaff" (click)="submit()">Upload Answer</button><br>
+      <button class="btn btn-primary" *ngIf="isStaff" type="view " (click)="view()">view submission</button>
+      <button class="btn btn-danger"(click)="logout()">Logout</button>
+    </div>
+  
+  </form>
+</div>
+</div>
+</body>
+
+

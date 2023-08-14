@@ -1,0 +1,20 @@
+.table-responsive {
+    overflow-x: auto;
+    margin: 5% auto;
+    width: 80%;
+    
+  }
+  
+  .table thead {
+    background-color: black;
+    color: white;
+
+  }
+  
+  .table tbody tr {
+    background-color: #444242;
+    color: white;
+  }
+  h1{
+    text-align: center;
+  }

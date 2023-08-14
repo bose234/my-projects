@@ -1,0 +1,107 @@
+.card {
+    background-color: transparent;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-shadow: 100px soli black;
+    text-align: center;
+    border-color:blue;
+    
+    
+  }
+  
+  .card-header {
+    background-color:#210062;
+    color: #fff;
+    padding: 10px;
+    text-decoration-color: black;
+    border-radius: 15px ;
+    font-family:cursive;
+
+  }
+  
+  .card-footer {
+    background-color:transparent;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px 5px 0 0;
+    font-family:cursive;
+  }
+  .card-body {
+    padding: 10px;
+    box-sizing:border-box;
+    /* max-height: 30%; */
+    
+   }
+  
+  .card-text {
+    margin-bottom: 5px;
+    color: black;
+  }
+  
+  .c0{
+    margin-left: -60%;
+  }
+  .c1{
+    margin-left: 70%;
+    margin-top: -8%;
+  }
+  .card {
+    transition: transform 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: scale(1.05);
+    box-shadow:black;
+  }
+  .card-body {
+   box-sizing:border-box;
+    overflow:hidden;
+    text-overflow:inherit;
+    
+  }
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    height: 100vh;
+    background-color:#ADE4DB;
+    background-image: url('https://wallpaperaccess.com/full/340434.png');
+    background-size: cover;
+    background-position: center;
+  }
+  .navbar {
+    margin-bottom: 0; 
+}
+.navbar {
+  background-color: rgb(71, 123, 235);
+  transition: background-color 0.3s ease-in-out;
+  overflow-x: auto;
+  white-space: nowrap;
+  border: blue;
+}
+
+.navbar-default .navbar-nav>li>a {
+  color: white;
+}
+
+.navbar-default .navbar-nav>li>a:hover,
+.navbar-default .navbar-nav>li>a:focus {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.navbar-default .navbar-nav>.active>a,
+.navbar-default .navbar-nav>.active>a:hover,
+.navbar-default .navbar-nav>.active>a:focus {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+
+  
+
+  
+ 
+  
+     

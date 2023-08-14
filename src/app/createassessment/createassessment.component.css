@@ -1,0 +1,90 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .form-container {
+    width: 400px;
+    justify-content: center;
+    align-items: center;
+  }
+  form{
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 10%;
+  }
+  .btn-primary{
+    margin-left: 95%;
+  }
+
+  .form-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    margin-left: 10%;
+    margin-top: 1%;
+    background-color: #f8f9fa;
+    border: 1px solid #0f0101;
+    border-radius: 10px;
+    background-image: url("https://img.freepik.com/free-photo/flat-lay-clipboards-with-copy-space_23-2148219259.jpg");
+  }
+  
+
+  .form-container label {
+    font-weight: bold;
+  }
+
+  .form-container .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+  }
+
+  .form-container .btn-primary:hover {
+    background-color: #0069d9;
+    border-color: #0062cc;
+  }
+
+  .form-container .btn-primary:focus,
+  .form-container .btn-primary.focus {
+    box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
+  }
+  
+  
+  
+  
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url("https://img.freepik.com/free-photo/flat-lay-clipboards-with-copy-space_23-2148219259.jpg");
+    background-size: cover;
+    background-position: center;
+  }
+  .navbar {
+    margin-bottom: 0; /* Remove default margin for navbar */
+}
+.navbar {
+  background-color: rgb(94, 119, 25);
+  transition: background-color 0.3s ease-in-out;
+  overflow-x: auto;
+  white-space: nowrap;
+  border-color: rgb(94, 119, 25);;
+}
+
+.navbar-default .navbar-nav>li>a {
+  color: white;
+}
+
+.navbar-default .navbar-nav>li>a:hover,
+.navbar-default .navbar-nav>li>a:focus {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.navbar-default .navbar-nav>.active>a,
+.navbar-default .navbar-nav>.active>a:hover,
+.navbar-default .navbar-nav>.active>a:focus {
+  background-color: rgba(255, 255, 255, 0.4);
+}

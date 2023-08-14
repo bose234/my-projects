@@ -1,0 +1,34 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">
+<nav class="navbar navbar-default "  *ngIf="!isStudent">
+  <div class="container-fluid">
+      <ul class="nav navbar-nav navbar-right">
+          <li><a routerLink="/">logout</a></li>
+      </ul>
+  </div>
+</nav>  
+<body>
+<div class="container">
+  <!-- <div *ngIf="assessments.length > 0; else noAssessments"> -->
+    <div class="row">
+      <div *ngFor="let assessment of assessments" class="col-md-4">
+        <div class="card animate-on-hover" (click)="goToTraineeSubmissionPage(assessment)">
+          <div class="card-header">{{ assessment.title }}</div>
+          <div class="card-body">
+            <p class="card-text c2" >{{ assessment.description }}</p>
+
+          </div>
+          <div class="card-footer">
+            <p class="card-text c0">Due Date: {{ assessment.dueDate }}</p>
+            <p class="card-text c1">Marks: {{ assessment.marks }}</p>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <ng-template #noAssessments >
+    <p>No assessments available.</p>
+  </ng-template>
+<!-- </div> -->
+</body>

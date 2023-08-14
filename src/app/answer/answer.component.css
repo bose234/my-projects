@@ -1,0 +1,54 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image:url('https://static.vecteezy.com/system/resources/previews/001/985/749/original/light-gray-blur-background-vector.jpg');
+  border-image-repeat: none;
+}
+
+/* .card {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  padding: 20px;
+  width: fit-content;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+} */
+
+.container {
+  text-align: center;
+  margin-top: -10%;
+  font-size: 130%;
+  margin-left: -185%;
+  
+ 
+  
+}
+
+form {
+  margin-top: 20px;
+  border: 10%;
+  color:white;
+}
+
+/* h1 {
+  text-align: center;
+  margin-bottom:
+} */
+.file{
+  margin-left: 40%;
+}
+h2{
+  font-family: cursive;
+}
+.card{
+  background-image: url('https://static.vecteezy.com/system/resources/previews/001/985/749/original/light-gray-blur-background-vector.jpg');
+ box-shadow: 10%;
+ border-radius: 10%;
+  backdrop-filter: blur(5px)saturate(190%);
+  -webkit-backdrop-filter: blur(5px);
+  box-shadow: 10%;
+
+
+}

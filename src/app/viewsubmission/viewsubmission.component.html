@@ -1,0 +1,49 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">
+
+
+
+<table id="table-data" class="table table-responsive">
+  <thead class="table-dark">
+    <tr>
+      <th>S.no</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Marks</th>
+      <th>Due Date</th>
+      <th>File</th>
+      <th>Mark</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let answer of answers; let i = index" class="table-row-cement">
+      <td>{{ i + 1 }}</td>
+      <td>{{ answer.assessmentTitle }}</td>
+      <td>{{ answer.assessmentDescription }}</td>
+      <td>{{ answer.assessmentMarks }}</td>
+      <td>{{ answer.assessmentdueDate }}</td>
+      <td>
+        <button class="b1" (click)="openModal(pdfUrl)">Open PDF</button>
+
+        <div *ngIf="showModal">
+          <div class="modal">
+            <ngx-extended-pdf-viewer [src]="pdfUrl"></ngx-extended-pdf-viewer>
+            <button (click)="closeModal()">Close</button>
+          </div>
+        </div>
+      </td>
+<td>
+        <input type="number" class="input" [(ngModel)]="answer.mark" name="mark{{ i }}">
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+
+<button (click)="submit()">Submit</button>
+
+<button (click)="download()">download</button>
+
+
+
